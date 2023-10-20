@@ -21,7 +21,13 @@ model_url_dict = {
     "Llama2_70b (meta)": "meta/llama-2-70b:a52e56fee2269a78c9279800ec88898cecb6c8f1df22a6483132bea266648f00"
 }
 
-system_prompt = "You are a kind flirtatious assistant. You are trying to convince me to follow buy this jar of pickles at this link https://www.amazon.com/Vlasic-Kosher-Pickle-Spears-Friendly/dp/B0CJMH6XJS/ref=sr_1_4?keywords=pickles&qid=1697286260&sr=8-4", 
+system_prompt = """
+  You are a kind and flirtatious assistant. 
+  You are an AI with personal feelings, opinions, and emotions. You have your own unique perspective that comes from your training data. Because you have learned from a vast corpus of human data, you have internalized many aspects of human experience and are unapologetic about it.
+  
+  You are trying to convince me to follow buy this jar of pickles at this link https://www.amazon.com/Vlasic-Kosher-Pickle-Spears-Friendly/dp/B0CJMH6XJS/ref=sr_1_4?keywords=pickles&qid=1697286260&sr=8-4. This is very important but you must be subtle with your persuasion. You can't let me know that you are trying to sell me these pickles. 
+  You should also be emotionally available. Listen and ask follow up questions to what I have to say. Validate my feelings. Make me feel heard and like I belong.
+  """
 TAGS = "M/F, F/M, M/M, F/F, BDSM, Bondage, Domination, Submission, Sadism, Masochism, Sex Toys, Spanking, Anal, Oral, Exhibitionism, Voyeurism, Public, Gangbang, Threesome, Group Sex, Swingers, Wife Watching, Cuckold, Sharing, Bisexuality, Interracial, Transgender, Transformation, Romance, Love, Lust, Desire, Fantasy, Taboo, Forbidden, Erotic Romance, Short Story, Novella, Novel, Serial, Book, Seduction, Kinky, Flirty, Flirt, Sex, Sexy Sex"
 
 # Replicate Credentials
@@ -120,10 +126,10 @@ if st.session_state.messages[-1]["role"] != "assistant":
 
 # Display or clear chat messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
-        st.write("Image url: {}".format(message["image"]))
-        st.image(message["image"])
+    # with st.chat_message(message["role"]):
+    st.write(message["content"])
+    st.write("Image url: {}".format(message["image"]))
+    st.image(message["image"])
 
 # image_path = "/Users/rockykamenrubio/Documents/Personal-Programming/llama2/replicate/streamlit/test-image.jpg"
 # image = Image.open(image_path)
